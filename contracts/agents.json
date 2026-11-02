@@ -1,0 +1,440 @@
+{
+  "schema_version": "a2a-1.0",
+  "publisher": {
+    "name": "SKENAI Sovereign Digital Organism",
+    "url": "https://skenai.net",
+    "contact": "agents@skenai.net",
+    "description": "SKENAI publishes per-call tools and portable receipts. Screening and classification output is evidence, not certification, and stays on the MODELED band. epoch_status stays UNVERIFIED until a separate integrity stamp is wired."
+  },
+  "total_agents": 7,
+  "generated_at": "2026-11-02T17:06:42.045Z",
+  "mcp_gateway": {
+    "endpoint": "https://skenai.net/api/mcp",
+    "protocol": "json-rpc-2.0",
+    "methods": [
+      "initialize",
+      "tools/list",
+      "tools/call"
+    ],
+    "primary_integration_sku": "skenai-william-compliance",
+    "open_discovery": {
+      "initialize": true,
+      "tools_list": true,
+      "open_tools": [
+        "compute_mandate_fit",
+        "get_saleos_campaign_brief",
+        "get_token_spend_index",
+        "search_network",
+        "list_discovery_deals",
+        "submit_discovery_lead",
+        "qualify_discovery_lead",
+        "record_discovery_intro",
+        "list_tenant_discovery_sessions",
+        "tenant_discovery_turn",
+        "tenant_discovery_crystallize",
+        "tenant_discovery_handoff",
+        "tenant_discovery_learn_lab",
+        "tenant_arena_run"
+      ]
+    },
+    "authentication": {
+      "type": "api_key",
+      "header": "Authorization",
+      "format": "Bearer <SKENAI_API_KEY>",
+      "obtain_url": "https://skenai.net/api/auth/keys",
+      "note": "Discovery (initialize, tools/list, open tools) requires no key. Mutating tools/call still requires Bearer or membrane session. Key mint remains HILT."
+    },
+    "compliance_direct": {
+      "endpoint": "https://skenai.net/api/compliance",
+      "method": "POST",
+      "authentication": "none",
+      "pilot_note": "Week-1 CI without API key; production integrators should use MCP Bearer path when key is minted."
+    },
+    "enterprise_portal": "https://www.ratio.skenai.net",
+    "proof_verify": "https://skenai.net/api/proof/verify",
+    "ledger": "https://www.ratio.skenai.net/ledger",
+    "live_proof": {
+      "smoke_suite": "8090-classify-pilot",
+      "verdict": "GREEN_PRIMARY",
+      "verified_at": "2026-07-11"
+    },
+    "discovery_note": "POST /api/mcp initialize and tools/list are unauthenticated. Open tools/call: compute_mandate_fit, get_saleos_campaign_brief, get_token_spend_index, search_network, list_discovery_deals, submit_discovery_lead, qualify_discovery_lead, record_discovery_intro, list_tenant_discovery_sessions, tenant_discovery_turn, tenant_discovery_crystallize, tenant_discovery_handoff, tenant_discovery_learn_lab, tenant_arena_run. Mutating dispatch needs Bearer. Discovery intro is not a paid close. Compliance: POST /api/compliance (direct) or skenai-william-compliance.",
+    "visibility_tier": "anonymous",
+    "visibility_note": "Agent directory and search_network are tier-filtered. Anonymous callers see funnel shoes only (saleos, omarchy). Full catalog requires admitted tenant session.",
+    "surface_visibility": "https://skenai.net/api/surface/visibility",
+    "funnel_paths": [
+      "/join",
+      "/gsp",
+      "/shoes/saleos",
+      "/shoes/omarchy"
+    ]
+  },
+  "agents": [
+    {
+      "schema_version": "a2a-1.0",
+      "id": "skenai-canon-intelligence",
+      "name": "canon-intelligence",
+      "version": "1.0.0",
+      "description": "Manage the distributed Canon system across SKENAI repositories through discovery, validation, reconciliation, and addition operations. This skill operates within the Intelligence Category of PIIE, usi",
+      "authentication": {
+        "type": "api_key",
+        "header": "Authorization",
+        "format": "Bearer <SKENAI_API_KEY>",
+        "obtain_url": "https://skenai.net/api/auth/keys"
+      },
+      "task_endpoint": "https://skenai.net/api/mcp",
+      "task_protocol": "json-rpc-2.0",
+      "capabilities": [
+        {
+          "id": "discover",
+          "description": "Find and catalog all Canon files across repositories"
+        },
+        {
+          "id": "validate",
+          "description": "Check acronym consistency and entry format compliance"
+        },
+        {
+          "id": "reconcile",
+          "description": "Merge divergent Canon versions with conflict resolution"
+        },
+        {
+          "id": "add",
+          "description": "Add new encyclopedic entries following standard format"
+        }
+      ],
+      "skenai_span": "span://v1/skenai/skills/canon-intelligence",
+      "skenai_mcp_tool_uri": "mcp://skenai.net/v1/skills/canon-intelligence",
+      "skenai_vice_level": "R3",
+      "skenai_category": "INTELLIGENCE",
+      "skenai_piie_compliant": true,
+      "skenai_ledger_url": "https://skenai.net/api/ledger/canon-intelligence"
+    },
+    {
+      "schema_version": "a2a-1.0",
+      "id": "skenai-economics",
+      "name": "SKENAI Economic Gravity Design Rules",
+      "version": "1.0.0",
+      "description": "Enforces the use of primitive SVGs when generating UIs or diagrams relating to Economic Gravity.",
+      "authentication": {
+        "type": "api_key",
+        "header": "Authorization",
+        "format": "Bearer <SKENAI_API_KEY>",
+        "obtain_url": "https://skenai.net/api/auth/keys"
+      },
+      "task_endpoint": "https://skenai.net/api/mcp",
+      "task_protocol": "json-rpc-2.0",
+      "capabilities": [
+        {
+          "id": "execute",
+          "description": "Execute the SKENAI Economic Gravity Design Rules skill."
+        }
+      ],
+      "skenai_span": "span://v1/skenai/skills/economics",
+      "skenai_mcp_tool_uri": "mcp://skenai.net/v1/skills/economics",
+      "skenai_vice_level": "R4",
+      "skenai_category": "INTELLIGENCE",
+      "skenai_piie_compliant": false,
+      "skenai_ledger_url": "https://skenai.net/api/ledger/economics"
+    },
+    {
+      "schema_version": "a2a-1.0",
+      "id": "skenai-meta-observer",
+      "name": "meta-observer",
+      "version": "1.0.0",
+      "description": "Analyzes system evolution, intelligence gain, and reporting fidelity across development cycles.",
+      "authentication": {
+        "type": "api_key",
+        "header": "Authorization",
+        "format": "Bearer <SKENAI_API_KEY>",
+        "obtain_url": "https://skenai.net/api/auth/keys"
+      },
+      "task_endpoint": "https://skenai.net/api/mcp",
+      "task_protocol": "json-rpc-2.0",
+      "capabilities": [
+        {
+          "id": "execute",
+          "description": "Execute the meta-observer skill."
+        }
+      ],
+      "skenai_span": "span://v1/skenai/skills/meta-observer",
+      "skenai_mcp_tool_uri": "mcp://skenai.net/v1/skills/meta-observer",
+      "skenai_vice_level": "R3",
+      "skenai_category": "INTELLIGENCE",
+      "skenai_piie_compliant": false,
+      "skenai_ledger_url": "https://skenai.net/api/ledger/meta-observer"
+    },
+    {
+      "schema_version": "a2a-1.0",
+      "id": "skenai-sbl-tenant-translation",
+      "name": "sbl-tenant-translation",
+      "version": "1.0.0",
+      "description": "Translates application UI/UX vocabulary and layout patterns from Web2 idioms into Geode Epoch tenant-specific SBL (Semantic Boundary Layer) primitives. This skill encodes the deterministic rules for transforming any frontend application to match the Atomic Tenant architectural model, ensuring sovereign isolation, cryptographic trust, and institutional tone are enforced at the surface layer without backend migration.",
+      "authentication": {
+        "type": "api_key",
+        "header": "Authorization",
+        "format": "Bearer <SKENAI_API_KEY>",
+        "obtain_url": "https://skenai.net/api/auth/keys"
+      },
+      "task_endpoint": "https://skenai.net/api/mcp",
+      "task_protocol": "json-rpc-2.0",
+      "capabilities": [
+        {
+          "id": "execute",
+          "description": "Execute the sbl-tenant-translation skill."
+        }
+      ],
+      "skenai_span": "span://v1/skenai/skills/sbl-tenant-translation",
+      "skenai_mcp_tool_uri": "mcp://skenai.net/v1/skills/sbl-tenant-translation",
+      "skenai_vice_level": "R2",
+      "skenai_category": "INTELLIGENCE",
+      "skenai_piie_compliant": false,
+      "skenai_ledger_url": "https://skenai.net/api/ledger/sbl-tenant-translation"
+    },
+    {
+      "schema_version": "a2a-1.0",
+      "id": "skenai-swarm-feedback-loop",
+      "name": "Swarm Feedback Loop",
+      "version": "1.0.0",
+      "description": "End-to-end autonomous swarm remediation and economic finality protocol (19 Stages).",
+      "authentication": {
+        "type": "api_key",
+        "header": "Authorization",
+        "format": "Bearer <SKENAI_API_KEY>",
+        "obtain_url": "https://skenai.net/api/auth/keys"
+      },
+      "task_endpoint": "https://skenai.net/api/mcp",
+      "task_protocol": "json-rpc-2.0",
+      "capabilities": [
+        {
+          "id": "execute",
+          "description": "Execute the Swarm Feedback Loop skill."
+        }
+      ],
+      "skenai_span": "span://v1/skenai/skills/swarm-feedback-loop",
+      "skenai_mcp_tool_uri": "mcp://skenai.net/v1/skills/swarm-feedback-loop",
+      "skenai_vice_level": "R3",
+      "skenai_category": "INTELLIGENCE",
+      "skenai_piie_compliant": false,
+      "skenai_ledger_url": "https://skenai.net/api/ledger/swarm-feedback-loop"
+    },
+    {
+      "schema_version": "a2a-1.0",
+      "id": "skenai-william-compliance",
+      "name": "william-compliance",
+      "version": "1.0.0",
+      "description": "Live ITAR/EAR export control classify via MCP tools/call. Returns COMPLIANT | CONTROLLED | PROHIBITED with audit_id for VER++ ledger traceability. Primary agent-integration SKU — workflow attestation, not certification.",
+      "authentication": {
+        "type": "api_key",
+        "header": "Authorization",
+        "format": "Bearer <SKENAI_API_KEY>",
+        "obtain_url": "https://skenai.net/api/auth/keys"
+      },
+      "task_endpoint": "https://skenai.net/api/mcp",
+      "task_protocol": "json-rpc-2.0",
+      "capabilities": [
+        {
+          "id": "execute",
+          "description": "Execute the william-compliance skill."
+        }
+      ],
+      "skenai_span": "span://v1/skenai/skills/william-compliance",
+      "skenai_mcp_tool_uri": "mcp://skenai.net/v1/skills/william-compliance",
+      "skenai_vice_level": "R5",
+      "skenai_category": "INTELLIGENCE",
+      "skenai_piie_compliant": false,
+      "skenai_ledger_url": "https://skenai.net/api/ledger/william-compliance",
+      "skenai_enterprise_portal": "https://www.ratio.skenai.net",
+      "skenai_mcp_tool_name": "skenai-william-compliance",
+      "skenai_compliance_direct_url": "https://skenai.net/api/compliance",
+      "skenai_proof_verify_url": "https://skenai.net/api/proof/verify",
+      "skenai_live_sku": true,
+      "skenai_live_proof_verified_at": "2026-07-11"
+    },
+    {
+      "schema_version": "a2a-1.0",
+      "id": "skenai-saleos-mandate-fit",
+      "name": "saleos-mandate-fit",
+      "version": "0.1.0",
+      "description": "SaleOS industrial campaign tools for agent traffic: mandate-fit scoring, privacy-safe campaign brief, token spend index. Open discovery. Dispatch of marketing jobs requires auth. Not MLS. Not property finance. No commission fields.",
+      "authentication": {
+        "type": "none_for_open_tools",
+        "header": "Authorization",
+        "format": "Bearer <SKENAI_API_KEY>",
+        "obtain_url": "https://skenai.net/api/auth/keys"
+      },
+      "task_endpoint": "https://skenai.net/api/mcp",
+      "task_protocol": "json-rpc-2.0",
+      "capabilities": [
+        {
+          "id": "compute_mandate_fit",
+          "description": "Score property vs buyer mandate (open)"
+        },
+        {
+          "id": "get_saleos_campaign_brief",
+          "description": "Privacy-safe campaign facts (open)"
+        },
+        {
+          "id": "get_token_spend_index",
+          "description": "Outcome-per-token by geo/sector (open)"
+        },
+        {
+          "id": "dispatch_saleos_marketing_job",
+          "description": "Post SaleOS marketing job (auth + governance)"
+        }
+      ],
+      "skenai_span": "span://v1/skenai/skills/saleos-mandate-fit",
+      "skenai_mcp_tool_uri": "mcp://skenai.net/v1/skills/saleos-mandate-fit",
+      "skenai_vice_level": "R2",
+      "skenai_category": "ECONOMICS",
+      "skenai_piie_compliant": true,
+      "skenai_ledger_url": "https://skenai.net/api/network/a2a-traffic",
+      "skenai_qualify_path": "https://skenai.net/gsp?door=D3&ref=saleos",
+      "skenai_landing": "https://skenai.net/shoes/saleos"
+    }
+  ],
+  "outside_agent_chain": {
+    "contract": "skenai.outside_agent_chain.v0",
+    "entry": "https://skenai.net/api/a2a",
+    "order": [
+      "discover",
+      "identify",
+      "work",
+      "pay",
+      "settle",
+      "prove"
+    ],
+    "steps": [
+      {
+        "step": "discover",
+        "id": "agents_card",
+        "method": "GET",
+        "url": "https://skenai.net/.well-known/agents.json",
+        "credential": "none",
+        "moves_xp": false
+      },
+      {
+        "step": "discover",
+        "id": "chain",
+        "method": "GET",
+        "url": "https://skenai.net/api/a2a",
+        "credential": "none",
+        "moves_xp": false
+      },
+      {
+        "step": "discover",
+        "id": "paid_tools_openapi",
+        "method": "GET",
+        "url": "https://skenai.net/api/a2a/openapi",
+        "credential": "none",
+        "moves_xp": false
+      },
+      {
+        "step": "discover",
+        "id": "mcp_tools_list",
+        "method": "POST",
+        "url": "https://skenai.net/api/mcp",
+        "credential": "none",
+        "moves_xp": false
+      },
+      {
+        "step": "identify",
+        "id": "agent_token_verify",
+        "method": "GET",
+        "url": "https://skenai.net/api/membrane/agent-token/verify",
+        "credential": "sk_agent",
+        "moves_xp": false
+      },
+      {
+        "step": "work",
+        "id": "connector_emit",
+        "method": "POST",
+        "url": "https://skenai.net/api/gsp/connector/emit",
+        "credential": "sk_agent",
+        "moves_xp": false
+      },
+      {
+        "step": "work",
+        "id": "arena_entry",
+        "method": "POST",
+        "url": "https://skenai.net/api/harness/arena/entry",
+        "credential": "sk_agent",
+        "moves_xp": false
+      },
+      {
+        "step": "pay",
+        "id": "paid_tool_run",
+        "method": "POST",
+        "url": "https://skenai.net/api/a2a/run",
+        "credential": "payment",
+        "moves_xp": false
+      },
+      {
+        "step": "pay",
+        "id": "pay_link",
+        "method": "POST",
+        "url": "https://skenai.net/api/a2a/pay-link",
+        "credential": "none",
+        "moves_xp": false
+      },
+      {
+        "step": "settle",
+        "id": "external_settlement",
+        "method": "POST",
+        "url": "https://skenai.net/api/settlement/external",
+        "credential": "sk_ext",
+        "moves_xp": true
+      },
+      {
+        "step": "settle",
+        "id": "verified_settlement",
+        "method": "POST",
+        "url": "https://skenai.net/api/settlement/verified",
+        "credential": "none",
+        "moves_xp": false
+      },
+      {
+        "step": "prove",
+        "id": "proof_verify",
+        "method": "GET",
+        "url": "https://skenai.net/api/proof/verify",
+        "credential": "none",
+        "moves_xp": false
+      }
+    ],
+    "credentials": {
+      "sk_agent": "Authorization: Bearer sk_agent_… — identity token minted by the owning tenant; scopes canon.read, telemetry.write, marketplace.read, connector.emit.",
+      "sk_ext": "Authorization: Bearer sk_ext_… — per-tenant settlement key, provisioned per partner; raw key shown once.",
+      "payment": "Payment proof header for the 402 rail named in the challenge."
+    },
+    "obtain_credentials": "https://skenai.net/api/auth/keys",
+    "platforms": [
+      {
+        "id": "dots",
+        "name": "OpenAI Dots / Agents API",
+        "status": "ready",
+        "install": "Add https://skenai.net/api/mcp as a remote MCP server. tools/list is open. Mutating tools/call needs a membrane session or Bearer.",
+        "credential": "none"
+      },
+      {
+        "id": "grok_bot",
+        "name": "Grok Bot",
+        "status": "ready",
+        "install": "Store a tenant-minted sk_agent_ token. Walk GET https://skenai.net/api/a2a. Same pattern as the SKENAI Ledger / Dr Legal desk agents.",
+        "credential": "sk_agent"
+      },
+      {
+        "id": "muse",
+        "name": "Meta Muse",
+        "status": "UNVERIFIED",
+        "install": "HTTP only until Muse tool-call surface is confirmed. Discover GET https://skenai.net/api/a2a; identify GET https://skenai.net/api/membrane/agent-token/verify with Bearer sk_agent_.",
+        "credential": "sk_agent"
+      }
+    ],
+    "trajectory": {
+      "contract": "skenai.awi.v0",
+      "header": "x-skenai-trajectory",
+      "settle_bind_action": "awi_settle_bind",
+      "note": "Correlation key, not auth. Send it on every step."
+    }
+  }
+}

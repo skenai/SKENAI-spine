@@ -1,0 +1,31 @@
+{
+  "name": "@skenai/spine",
+  "version": "0.1.0",
+  "description": "Published interface layer of the SKENAI settlement network: contracts, schemas, receipt shapes, and SPAN helpers for building surfaces that settle back on the canonical ledger.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "contracts",
+    "LICENSE",
+    "NOTICE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "check:boundary": "node scripts/check-boundary.mjs",
+    "generate:agents-json": "npm run build && node scripts/generate-agents-json.mjs",
+    "prepublishOnly": "npm run build && npm run check:boundary && npm test"
+  },
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
+  }
+}
