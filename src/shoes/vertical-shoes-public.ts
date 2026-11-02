@@ -86,7 +86,7 @@ export const PUBLIC_VERTICAL_SHOE_IDS = [
   'legal',
   'build-plan',
   'agroenergy',
-] as const satisfies readonly VerticalShoeId[]
+] as const
 
 export const PUBLIC_VERTICAL_SHOES: VerticalShoeDef[] = [
   {
@@ -575,6 +575,7 @@ export const PUBLIC_VERTICAL_SHOES: VerticalShoeDef[] = [
     qualify_path: '/gsp?door=D3&ref=shbk',
     risk_api: '/api/network/risk?vertical=shbk',
     landing_path: '/shoes/shbk',
+    seed_sources: ['skenai.net/shibaken', 'skenai.net/gsp'],
     pitch: 'Shibakery — regulated vertical on spine; no token narrative; Counsel lane.',
     epoch_status: 'UNVERIFIED',
     membrane_class: 'sandbox',

@@ -3,7 +3,7 @@
  * "Airbnb of Shark Tank" = one funnel, many verticals, mutual receipts.
  */
 
-import { LEMANS_PARAMETRIC_KERNEL } from './lemans-shoe'
+import { LEMANS_PARAMETRIC_KERNEL } from './lemans-shoe.js'
 
 export type TargetStrategy = 'build' | 'buy' | 'couple'
 export type TargetStatus =
