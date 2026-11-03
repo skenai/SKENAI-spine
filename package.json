@@ -13,6 +13,7 @@
     "README.md"
   ],
   "scripts": {
+    "prepare": "npm run build",
     "build": "tsc",
     "test": "vitest run",
     "check:boundary": "node scripts/check-boundary.mjs",
