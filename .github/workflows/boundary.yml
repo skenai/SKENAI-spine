@@ -28,7 +28,7 @@ jobs:
           if [ -z "$BASE" ] || [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
             BASE="${{ github.event.pull_request.base.sha || 'HEAD~20' }}"
           fi
-          BAD=$(git log --format='%an <%ae>' "$BASE..HEAD" 2>/dev/null | sort -u | grep -vE '^Skenai <001@skenai\.net>$|^Devin <158243242\+devin-ai-integration\[bot\]@users\.noreply\.github\.com>$' || true)
+          BAD=$(git log --format='%an <%ae>' "$BASE..HEAD" 2>/dev/null | sort -u | grep -vE '^Skenai <001@skenai\.net>$|^Devin <158243242\+devin-ai-integration\[bot\]@users\.noreply\.github\.com>$|^skenxt <83056885\+skenxt@users\.noreply\.github\.com>$' || true)
           if [ -n "$BAD" ]; then
             echo "::error::Non-allowlisted commit author identity:"
             echo "$BAD"
