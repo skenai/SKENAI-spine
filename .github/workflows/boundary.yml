@@ -1,0 +1,40 @@
+name: boundary
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Boundary check — no private terms, no engine internals
+        run: npm run check:boundary
+
+      - name: Author identity allowlist
+        run: |
+          BASE="${{ github.event.before || '' }}"
+          if [ -z "$BASE" ] || [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
+            BASE="${{ github.event.pull_request.base.sha || 'HEAD~20' }}"
+          fi
+          BAD=$(git log --format='%an <%ae>' "$BASE..HEAD" 2>/dev/null | sort -u | grep -vE '^Skenai <001@skenai\.net>$|^Devin <158243242\+devin-ai-integration\[bot\]@users\.noreply\.github\.com>$' || true)
+          if [ -n "$BAD" ]; then
+            echo "::error::Non-allowlisted commit author identity:"
+            echo "$BAD"
+            exit 1
+          fi
+          echo "Author identities OK"
+
+      - name: Tests
+        run: npm test
