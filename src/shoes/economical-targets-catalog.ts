@@ -13,7 +13,7 @@ export type TargetStatus =
   | 'counsel'
   | 'narrative'
   | 'whale'
-  /** Architect LTF only — never public ticker boards / GTM spectacle */
+  /** Closed-side status — never on public ticker boards / GTM spectacle */
   | 'private'
 
 export type EconomicalTarget = {
