@@ -13,10 +13,14 @@ import type { OssPrMembraneReceiptInput } from '../receipts/oss-pr-receipt-shape
 import type { MembraneAuditParams } from '../receipts/membrane-event-types.js';
 
 const FORBIDDEN = new Set([
-  ['kad'+'ita','aki'+'ta','bo'+'ker','ar'+'bor','tenant'+'_connector','aske'+'nai',
-  'dx'+'c','sop'+'ra','sab'+'el','sha'+'dow','albe'+'rta','nexp'+'ert',
+  'kadita', 'akita', 'boker', 'arbor', 'tenant_connector', 'askenai',
+  'dxc', 'sopra', 'sabel', 'shadow', 'alberta', 'nexpert',
+  'iprd', 'herd', 'nxprt', 'pshdw', 'bob7k',
 ]);
-const FORBIDDEN_TICKERS = new Set(['KAD'+'ITA','AKI'+'TA','BOK'+'ER','ARB'+'OR','TCO'+'NN','ASK'+'N','DX'+'C','ALB'+'TA','SOP'+'RA','BOB'+'7K','NXP'+'RT']);
+const FORBIDDEN_TICKERS = new Set([
+  'KADITA', 'AKITA', 'BOKER', 'ARBOR', 'TCONN', 'ASKN', 'DXC',
+  'ALBTA', 'SOPRA', 'BOB7K', 'NXPRT', 'HERD', 'IPRD', 'SABEL', 'PSHDW', 'SOCKS',
+]);
 
 describe('shoe catalog — public perimeter', () => {
   it('contains only public shoes (no architect-private ids)', () => {
@@ -26,18 +30,26 @@ describe('shoe catalog — public perimeter', () => {
       expect(shoe.membrane_class).not.toBe('architect_private');
     }
     for (const id of PUBLIC_VERTICAL_SHOE_IDS) expect(FORBIDDEN.has(id)).toBe(false);
-    expect(listPublicVerticalShoes()).toEqual(VERTICAL_SHOES);
+    const publicShoes = listPublicVerticalShoes();
+    for (const shoe of publicShoes) {
+      expect(FORBIDDEN.has(shoe.id)).toBe(false);
+      expect(shoe.membrane_class).not.toBe('architect_private');
+      expect(shoe.catalog_visibility).not.toBe('lab');
+      expect(shoe.landing_path).toBeTruthy();
+    }
+    // Lab-visibility shoes exist in the catalog but stay off the public list.
+    expect(publicShoes.length).toBeLessThan(VERTICAL_SHOES.length);
   });
   it('ticker map resolves public tickers only', () => {
     for (const t of Object.keys(TICKER_TO_SHOE)) expect(FORBIDDEN_TICKERS.has(t)).toBe(false);
     expect(shoeIdForTicker('REG')).toBe('registry');
-    expect(shoeIdForTicker('KAD'+'ITA')).toBeNull();
-    expect(shoeIdForTicker('DX'+'C')).toBeNull();
+    expect(shoeIdForTicker('KADITA')).toBeNull();
+    expect(shoeIdForTicker('DXC')).toBeNull();
   });
   it('econ targets carry no private-status rows', () => {
     for (const t of ECONOMICAL_TARGETS) expect(t.status).not.toBe('private');
     for (const t of ECONOMICAL_TARGETS) {
-      expect(['PL'+'NV','VI'+'A','NEB'+'IUS','END'+'PT','SUN'+'GRID','AUK'+'ERA','BOB'+'7K','HER'+'D','IPR'+'D','SAB'+'EL','NXP'+'RT','PSH'+'DW','SOC'+'KS']).not.toContain(t.symbol);
+      expect(['PLNV', 'VIA', 'NEBIUS', 'ENDPT', 'SUNGRID', 'AUKERA', 'BOB7K', 'HERD', 'IPRD', 'SABEL', 'NXPRT', 'PSHDW', 'SOCKS']).not.toContain(t.symbol);
     }
     expect(listPublicEconomicalTargets().length).toBe(ECONOMICAL_TARGETS.length);
   });

@@ -75,7 +75,6 @@ export function isCatalogGtmShoe(shoe: VerticalShoeDef | undefined): boolean {
 export function isCatalogLandingShoe(shoe: VerticalShoeDef | undefined): boolean {
   if (!shoe?.landing_path?.startsWith('/shoes/')) return false
   if (shoe.catalog_visibility === 'lab') return false
-  if (shoe.id === 'tenant_connector' || shoe.id === 'askenai') return true
   return isCatalogGtmShoe(shoe)
 }
 

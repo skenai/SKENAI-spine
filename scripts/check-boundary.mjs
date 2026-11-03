@@ -52,7 +52,7 @@ const ALLOWLIST = [
   {
     // Negative-perimeter assertions name the forbidden ids they test for.
     file: join('__tests__', 'shoes-receipts.test.ts'),
-    re: /kadita|akita|boker|arbor|tenant_connector|askenai|dxc|sopra|sabel|shadow|alberta|nexpert|PLNV|NEBIUS|ENDPT|SUNGRID|AUKERA|BOB7K|HERD|IPRD|SABEL|NXPRT|PSHDW|SOCKS/g,
+    re: /kadita|akita|boker|arbor|tenant_connector|askenai|dxc|sopra|sabel|shadow|alberta|nexpert|iprd|herd|nxprt|pshdw|bob7k|misterlindsay|shibaken|1WXMGr|1lrtpz|tconn|askn|albta|plnv|nebius|endpt|sungrid|aukera|socks/gi,
   },
 ];
 

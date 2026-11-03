@@ -4,7 +4,7 @@
  */
 
 export const DEFAULT_OSS_TENANT_SPAN = 'span://v1/skenai/tenants/oss';
-export const DXC_DEMO_TENANT_SPAN = 'span://v1/skenai/tenants/example';
+export const EXAMPLE_TENANT_SPAN = 'span://v1/skenai/tenants/example';
 
 export function normalizeTenantSpan(span?: string | null): string {
   const trimmed = span?.trim();
@@ -21,7 +21,7 @@ export function resolveMarketplaceTenantSpan(
     return normalizeTenantSpan(explicitSpan);
   }
   if (activeTenant === 'example-tenant') {
-    return DXC_DEMO_TENANT_SPAN;
+    return EXAMPLE_TENANT_SPAN;
   }
   if (activeTenant === 'oss' || !activeTenant) {
     return DEFAULT_OSS_TENANT_SPAN;

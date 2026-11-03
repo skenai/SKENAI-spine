@@ -49,7 +49,6 @@ export const PUBLIC_VERTICAL_SHOE_IDS = [
   'orgsk',
   'vulcan',
   'lyap',
-  'iprd',
   'nebius',
   'victron',
   'unitree',
@@ -575,7 +574,7 @@ export const PUBLIC_VERTICAL_SHOES: VerticalShoeDef[] = [
     qualify_path: '/gsp?door=D3&ref=shbk',
     risk_api: '/api/network/risk?vertical=shbk',
     landing_path: '/shoes/shbk',
-    seed_sources: ['skenai.net/shibaken', 'skenai.net/gsp'],
+    seed_sources: ['skenai.net/gsp'],
     pitch: 'Shibakery — regulated vertical on spine; no token narrative; Counsel lane.',
     epoch_status: 'UNVERIFIED',
     membrane_class: 'sandbox',
@@ -859,27 +858,6 @@ export const PUBLIC_VERTICAL_SHOES: VerticalShoeDef[] = [
     membrane_class: 'sandbox',
   },
   {
-    id: 'iprd',
-    sku: 'sc.iprd.shoe',
-    name: 'Investor readiness audit',
-    hub: 'AI claim pressure · evidence · human-graded audit',
-    market: 'M1 institutional · M5 diligence compounding',
-    door: 'D2',
-    qualify_path: '/gsp?door=D2&ref=iprd',
-    risk_api: '/api/network/risk?vertical=iprd',
-    landing_path: '/shoes/iprd',
-    seed_sources: [
-      'skenai.net/chandelier/ipo',
-      'skenai.net/diligence/dossier',
-      'skenai.diligence.multi_agent_swarm.v1.0',
-      'skenai.ipo_readiness.v0.1',
-    ],
-    pitch:
-      'Before investors attack your company, we pressure-test the claims — then deliver a human-authored audit with a clear fix path.',
-    epoch_status: 'UNVERIFIED',
-    membrane_class: 'sandbox',
-  },
-  {
     id: 'nebius',
     sku: 'sc.nebius.shoe',
     name: 'Nebius readiness (Chandelier probe)',
@@ -921,7 +899,7 @@ export const PUBLIC_VERTICAL_SHOES: VerticalShoeDef[] = [
       'skenai.net/victron',
     ],
     pitch:
-      'Connect Victron VRM for field-shadow telemetry (watts authority none until DeStROI HSM). Interval attest parameter telemetry.attest.victron.interval couples to insurer/lender readers (SRA demand) without competing on hail/fire/SOC models — not a thermodynamic settlement floor, not equity minting.',
+      'Connect Victron VRM for field telemetry (watts authority none until DeStROI HSM). Interval attest parameter telemetry.attest.victron.interval couples to insurer/lender readers (SRA demand) without competing on hail/fire/SOC models — not a thermodynamic settlement floor, not equity minting.',
     epoch_status: 'UNVERIFIED',
     membrane_class: 'sandbox',
     unit_economics_api: '/api/network/tenant-unit-economics?vertical=victron',
@@ -1257,7 +1235,7 @@ export const PUBLIC_VERTICAL_SHOES: VerticalShoeDef[] = [
       'ams.usda.gov',
     ],
     pitch:
-      'Lock data-access deals with abattoirs and ranchers. Reconstruct the livestock market as it exists today (lots, movements, kill, prices) before any agent automation. Interval oracle product remains lab — not for sale. HERD stays off public boards.',
+      'Lock data-access deals with abattoirs and ranchers. Reconstruct the livestock market as it exists today (lots, movements, kill, prices) before any agent automation. Interval oracle product remains lab — not for sale.',
     epoch_status: 'UNVERIFIED',
     membrane_class: 'sandbox',
     catalog_visibility: 'lab',
@@ -1595,7 +1573,6 @@ export const PUBLIC_VERTICAL_SHOES: VerticalShoeDef[] = [
     epoch_status: 'UNVERIFIED',
     membrane_class: 'sandbox',
   },
-,
   {
     id: 'legal',
     sku: 'sc.legal.shoe',
@@ -1616,7 +1593,6 @@ export const PUBLIC_VERTICAL_SHOES: VerticalShoeDef[] = [
     epoch_status: 'UNVERIFIED',
     membrane_class: 'sandbox',
   },
-,
   {
     id: 'build-plan',
     sku: 'sc.build_plan.shoe',

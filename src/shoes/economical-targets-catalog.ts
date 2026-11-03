@@ -34,7 +34,7 @@ export type EconomicalTarget = {
 /** Seed catalog — expand as probes return signal */
 
 
-export const PUBLIC_ECONOMICAL_TARGETS: EconomicalTarget[] = [
+export const PUBLIC_ECONOMICAL_TARGETS: EconomicalTarget[] = ([
   {
     symbol: 'REG',
     name: 'Global web risk registry',
@@ -727,32 +727,6 @@ export const PUBLIC_ECONOMICAL_TARGETS: EconomicalTarget[] = [
     surface: 'KWHA',
   },
   {
-    symbol: 'TCONN',
-    name: 'Tenant Connector',
-    strategy: 'build',
-    status: 'probe',
-    market: 'M4 agent infra · M5 tenant-zero membranes',
-    door: 'D2',
-    thesis:
-      'Live read-only attach to tenant-owned systems (Drive SVI-GO-SYSTEM first) — list + doc export under William Gate; hopper paste remains snapshot lane; connect/act/revoke generic connector is Phase 0+',
-    coupling: 0.62,
-    href: '/shoes/tenant_connector',
-    surface: 'TCONN',
-  },
-  {
-    symbol: 'ASKN',
-    name: 'Askenai',
-    strategy: 'build',
-    status: 'probe',
-    market: 'M4 agent infra · M5 conductor',
-    door: 'D2',
-    thesis:
-      'Connector officer + network conductor — nucleolus fairness, CTW-cheap pairwise check, job-linked eXP PMs. Not a second William. WWMD = What Would Maschler Do.',
-    coupling: 0.68,
-    href: '/shoes/askenai',
-    surface: 'ASKN',
-  },
-  {
     symbol: 'DECKB',
     name: 'Deck bundle',
     strategy: 'build',
@@ -947,7 +921,7 @@ export const PUBLIC_ECONOMICAL_TARGETS: EconomicalTarget[] = [
     href: '/shoes/legal',
     surface: 'LEGAL',
   },
-].sort((a, b) => {
+] satisfies EconomicalTarget[]).sort((a, b) => {
     if (a.status === 'whale' && b.status !== 'whale') return -1
     if (b.status === 'whale' && a.status !== 'whale') return 1
     return b.coupling - a.coupling

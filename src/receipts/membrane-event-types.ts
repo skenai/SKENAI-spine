@@ -2,7 +2,7 @@
  * Membrane boundary-event types — shape only.
  *
  * Spine-shippable event vocabulary for the Lane B `membrane_boundary_log`.
- * The writer (`logMembraneEvent`, fail-closed Supabase append) stays CLOSED in
+ * The writer (`logMembraneEvent`, fail-closed engine-side append) stays CLOSED in
  * src/lib/membrane/audit.ts, which imports these types — one source of truth.
  * Pure types — no imports, no I/O.
  */
