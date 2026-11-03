@@ -30,6 +30,10 @@ Do not commit:
 This project uses the Developer Certificate of Origin 1.1 (DCO). By adding a
 `Signed-off-by:` trailer to each commit (`git commit -s`), you certify:
 
+**Pseudonymous contribution is welcome.** Your sign-off and contribution
+attribution attach to the identity on your commits — your GitHub login or
+chosen handle, not your legal name. GitHub noreply addresses are fine.
+
 ```
 Developer Certificate of Origin
 Version 1.1
