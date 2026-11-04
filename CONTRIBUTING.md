@@ -84,3 +84,6 @@ npm run check:boundary
 
 All three must pass. Keep diffs small; keep comments truthful — a constant is
 a constant, a demo is a demo.
+
+
+> Note for outside contributors: every merged PR is receipted by the network — merged PRs produce an attributable contribution receipt (and governed XP when the contributor links their GitHub to a SKENAI account).
