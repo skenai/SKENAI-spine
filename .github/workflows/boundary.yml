@@ -22,19 +22,22 @@ jobs:
       - name: Boundary check — no private terms, no engine internals
         run: npm run check:boundary
 
-      - name: Author identity allowlist
+      - name: Actor gate — direct pushes must come from network accounts
+        # Outside contributions arrive via pull_request and may carry ANY
+        # commit author — content safety is the check:boundary + test steps'
+        # job. A commit-author allowlist would make outside merges impossible.
+        # On push events the actor is the pusher: only repo collaborators can
+        # push, and we additionally require a network account identity.
         run: |
-          BASE="${{ github.event.before || '' }}"
-          if [ -z "$BASE" ] || [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
-            BASE="${{ github.event.pull_request.base.sha || 'HEAD~20' }}"
+          ACTOR="${{ github.actor }}"
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            echo "PR opened by $ACTOR — outside contributors welcome"
+            exit 0
           fi
-          BAD=$(git log --format='%an <%ae>' "$BASE..HEAD" 2>/dev/null | sort -u | grep -vE '^Skenai <001@skenai\.net>$|^Devin <158243242\+devin-ai-integration\[bot\]@users\.noreply\.github\.com>$|^skenxt <83056885\+skenxt@users\.noreply\.github\.com>$' || true)
-          if [ -n "$BAD" ]; then
-            echo "::error::Non-allowlisted commit author identity:"
-            echo "$BAD"
-            exit 1
-          fi
-          echo "Author identities OK"
+          case "$ACTOR" in
+            skenxt|Skenai|devin-ai-integration[bot]) echo "Push actor $ACTOR OK" ;;
+            *) echo "::error::Push actor not allowlisted: $ACTOR"; exit 1 ;;
+          esac
 
       - name: Tests
         run: npm test
