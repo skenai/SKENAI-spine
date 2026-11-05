@@ -107,3 +107,8 @@ whitepaper archive (skenai.net/whitepaper).
 
 Apache-2.0 — see [LICENSE](LICENSE) and [NOTICE](NOTICE).
 Contributions are DCO-signed — see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+
+## Contribution receipts
+
+Every merged pull request produces an attributable contribution receipt on the network membrane. Contributors who link their GitHub account to a SKENAI workspace receive governed XP credit for accepted merges — see CONTRIBUTING.md for the sign-off requirements.
