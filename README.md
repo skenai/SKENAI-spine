@@ -112,3 +112,5 @@ Contributions are DCO-signed — see [CONTRIBUTING.md](CONTRIBUTING.md).
 ## Contribution receipts
 
 Every merged pull request produces an attributable contribution receipt on the network membrane. Contributors who link their GitHub account to a SKENAI workspace receive governed XP credit for accepted merges — see CONTRIBUTING.md for the sign-off requirements.
+
+The receipt is an `oss_pr_merged` membrane event: it names the merged PR, the actor classification, and the contributor's bound tenant span when a linked account exists. XP awards are capped per merge and per contributor per day, and never pay platform accounts.
